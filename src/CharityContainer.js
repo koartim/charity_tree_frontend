@@ -2,7 +2,7 @@ import React from 'react';
 import CharityCard from './CharityCard'
 import CharityPage from './CharityPage'
 import { connect } from 'react-redux'
-/// this isn't loading rn because auth is a bitch
+
 class CharityContainer extends React.Component {
 
   render() {
@@ -12,7 +12,6 @@ class CharityContainer extends React.Component {
         {this.props.charities.map(charity => {
           return <CharityCard charity={charity} key={charity.id} />
         })}
-
       </div>
     )
   }

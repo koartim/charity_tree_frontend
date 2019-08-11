@@ -4,7 +4,6 @@ import CharityPage from './CharityPage'
 import CharityContainer from './CharityContainer'
 import { Route, Switch } from 'react-router-dom'
 import queryString from 'query-string'
-// our component App is now connected to the store and has access to state
 
 class AllCharitiesPage extends React.Component {
 
@@ -31,7 +30,7 @@ class AllCharitiesPage extends React.Component {
     }
 
   render() {
-  
+
   return (
     <Switch>
       <Route path="/charities/:id" render={routeProps => {

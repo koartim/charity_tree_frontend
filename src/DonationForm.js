@@ -51,6 +51,7 @@ class DonationForm extends React.Component{
     }
 
   render() {
+    console.log(this.props)
     console.log(this.state.selectedCharity, this.props.selectedCharity)
     return(
       <Form onSubmit={this.handleSubmit} class="ui form">

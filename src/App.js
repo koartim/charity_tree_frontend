@@ -14,22 +14,6 @@ import { login } from './actions'
 import { Grid } from 'semantic-ui-react'
 
  class App extends React.Component {
-   //
-   // state = {
-   //   donation: []
-   // }
-   //
-   // componentDidMount() {
-   //   fetch('http://localhost:3000/api/v1/donations')
-   //     .then(rsp => rsp.json())
-   //     .then(donations => {
-   //       donations.map(donation => {
-   //         this.setState({
-   //           donations: donations
-   //        })
-   //       })
-   //     })
-   //   }
 
    render() {
      return(

@@ -23,15 +23,19 @@ class ProfilePage extends React.Component {
     })
   }
 
-  fetchDonation = () => {
-    this.state.donations.map(donation => {
-        console.log(donation)
-    })
+  getTotalAmount = () => {
+    return this.state.donations.reduce((acc, donation) => {
+      if (donation.user_id === this.props.selectedUser.user.id) {
+        return acc + donation.amount
+      } else {
+        return null
+      }
+    }, 0)
   }
 
   render() {
     if (this.state.donations.length > 0) {
-      this.fetchDonation()
+      console.log(this.getTotalAmount())
     }
     return(
     <Card>
@@ -47,10 +51,9 @@ class ProfilePage extends React.Component {
               return <Card.Description>Charity:{donation.charity.name},  Contribution: ${donation.amount}</Card.Description>
           }
         })}
-
         </Card.Meta>
         <Card.Meta>
-
+           <Card.Description> Total Contributions:{this.getTotalAmount()} </Card.Description>
         </Card.Meta>
       </Card.Content>
     </Card>

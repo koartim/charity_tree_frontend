@@ -17,11 +17,7 @@ class Login extends React.Component {
       [event.target.name]: event.target.value
     })
   }
-/// When a user signs in I want to set them state somehow as the current user,
-/// then, with that user in state I want to show a profile page with all of their information.
-/// I'm thinking that when I fetch to login a user I can set the user in the store state
-/// Then I can connect to the store and access all of the information I need for the profile page.
-
+  
   handleSubmit = (event) => {
     event.preventDefault()
     fetch("http://localhost:3000/api/v1/login", {
