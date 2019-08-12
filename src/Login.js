@@ -17,7 +17,7 @@ class Login extends React.Component {
       [event.target.name]: event.target.value
     })
   }
-  
+
   handleSubmit = (event) => {
     event.preventDefault()
     fetch("http://localhost:3000/api/v1/login", {

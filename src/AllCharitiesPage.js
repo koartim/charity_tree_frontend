@@ -16,6 +16,9 @@ class AllCharitiesPage extends React.Component {
     .then(rsp => rsp.json())
     .then(data => {
       this.props.fetchCharities(data)
+      this.setState({
+        loading: false
+      })
     })}
 
 
@@ -30,19 +33,24 @@ class AllCharitiesPage extends React.Component {
     }
 
   render() {
-
-  return (
-    <Switch>
-      <Route path="/charities/:id" render={routeProps => {
-        const charityId = routeProps.match.params.id
-        console.log(charityId)
-          return (
-            <CharityPage charityId={charityId} />
-          )
-      }}/>
-    </Switch>,
-    <CharityContainer charities={this.getSearchedCharities()}/>
-   );
+    if (this.state.loading) {
+      return (
+        <img className="loader" src="https://www.macupdate.com/images/icons256/54019.png"/>
+      )
+    } else {
+      return (
+        <Switch>
+          <Route path="/charities/:id" render={routeProps => {
+            const charityId = routeProps.match.params.id
+            console.log(charityId)
+              return (
+                <CharityPage charityId={charityId} />
+              )
+          }}/>
+        </Switch>,
+        <CharityContainer charities={this.getSearchedCharities()}/>
+       );
+    }
   }
 }
 
