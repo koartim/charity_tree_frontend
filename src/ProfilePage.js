@@ -10,7 +10,8 @@ import DonationForm from './DonationForm'
 class ProfilePage extends React.Component {
 
   state = {
-    donations: []
+    donations: [],
+    loading: true
   }
 
   componentDidMount() {
@@ -18,7 +19,8 @@ class ProfilePage extends React.Component {
       .then(rsp => rsp.json())
       .then(donations => {
         this.setState({
-          donations: donations
+          donations: donations,
+          loading: false
         })
     })
   }
@@ -38,32 +40,35 @@ class ProfilePage extends React.Component {
       }
     }, 0)
   }
-
+  // if (this.state.donations.length > 0) {
+  //   console.log(this.state.donations)
   render() {
-    if (this.state.donations.length > 0) {
-      console.log(this.state.donations)
-    }
-    return(
-    <Card>
-      <Image align="center" src={this.props.selectedUser.user.avatar}/>
-        <Card.Header>{this.props.selectedUser.user.username}</Card.Header>
-        <Card.Header>
-          <Card.Description>{this.props.selectedUser.user.bio}</Card.Description>
-        </Card.Header>
-        <Card.Meta></Card.Meta>
-          <Card.Header>Donations</Card.Header>
-        <Card.Description>
-        {this.state.donations.map(donation => {
-          if (donation.user_id === this.props.selectedUser.user.id) {
-              return <Card.Meta>{donation.charity.name}: ${donation.amount}</Card.Meta>
-          }
-        })}
-        </Card.Description>
+    if (this.state.loading) {
+      return(
+        <img className="loader" src="https://www.macupdate.com/images/icons256/54019.png"/>
+      )
+    } else {
+      return(
+      <Card>
+        <Image align="center" src={this.props.selectedUser.user.avatar}/>
+          <Card.Header>{this.props.selectedUser.user.username}</Card.Header>
+          <Card.Header>
+            <Card.Description>{this.props.selectedUser.user.bio}</Card.Description>
+          </Card.Header>
           <Card.Header> Total Donated:{this.getTotalAmount()} </Card.Header>
-          <Card.Description>Estimated Deduction: {(this.getTotalAmount() * 0.2)}</Card.Description>
-    </Card>
-
-    )
+          <Card.Description>Estimated Deduction: ${(this.getTotalAmount() * 0.2).toFixed()}</Card.Description>
+          <Card.Meta></Card.Meta>
+            <Card.Header>Donations:</Card.Header>
+          <Card.Description>
+          {this.state.donations.map(donation => {
+            if (donation.user_id === this.props.selectedUser.user.id) {
+                return <Card.Meta>{donation.charity.name}: ${donation.amount}</Card.Meta>
+            }
+          })}
+          </Card.Description>
+      </Card>
+      )
+    }
   }
 }
 

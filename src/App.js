@@ -16,9 +16,10 @@ import { Grid } from 'semantic-ui-react'
  class App extends React.Component {
 
    render() {
+
      return(
        <Grid>
-        <NavBar />
+        <NavBar align="center"/>
             <Grid.Row centered>
             <Switch>
               <Route path="/home" render={() => <HomePage /> }/>
