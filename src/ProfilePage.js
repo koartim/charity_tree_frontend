@@ -23,6 +23,12 @@ class ProfilePage extends React.Component {
     })
   }
 
+  getNumberOfDonations = () => {
+    return this.state.donations.reduce((acc, donation) => {
+      if (donation.user_id === this.props.selectedUser.user.id) {}
+    })
+  }
+
   getTotalAmount = () => {
     return this.state.donations.reduce((acc, donation) => {
       if (donation.user_id === this.props.selectedUser.user.id) {
@@ -44,16 +50,17 @@ class ProfilePage extends React.Component {
         <Card.Header>
           <Card.Description>{this.props.selectedUser.user.bio}</Card.Description>
         </Card.Header>
-        <Card.Meta>
+        <Card.Meta></Card.Meta>
+          <Card.Header>Donations</Card.Header>
+        <Card.Description>
         {this.state.donations.map(donation => {
           if (donation.user_id === this.props.selectedUser.user.id) {
-              return <Card.Description>{donation.charity.name}: ${donation.amount}</Card.Description>
+              return <Card.Meta>{donation.charity.name}: ${donation.amount}</Card.Meta>
           }
         })}
-        </Card.Meta>
-        <Card.Meta>
-           <Card.Description> Total Donated:{this.getTotalAmount()} </Card.Description>
-        </Card.Meta>
+        </Card.Description>
+          <Card.Header> Total Donated:{this.getTotalAmount()} </Card.Header>
+          <Card.Description>Estimated Deduction: {(this.getTotalAmount() * 0.2)}</Card.Description>
     </Card>
 
     )
