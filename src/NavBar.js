@@ -1,8 +1,7 @@
 import React from 'react'
 import NavOptions from "./NavOptions"
 import { Link, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { Image, Header } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 
 class NavBar extends React.Component{
   render() {

@@ -2,14 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchCharity } from './actions'
 import { Link } from 'react-router-dom'
-import ProfilePage from './ProfilePage'
 import {Card, Button, Image} from 'semantic-ui-react'
-import DonationForm from './DonationForm'
 
 class CharityPage extends React.Component {
 
   state = {
-    charity: {}
+    charity: {},
+    loading: true
   }
 
 componentDidMount() {
@@ -20,25 +19,31 @@ componentDidMount() {
           charity: Object.assign(charity, this.state.charity )
         })
         fetchCharity(charity)
+        this.setState({
+          loading: false
+        })
       })
   }
 
   render() {
-    console.log(this.props)
-    return(
-      <Card>
-        <Card.Content class = "ui card">
-        <h2>{this.state.charity.name}</h2>
-        <Image src={this.state.charity.rating_image}/>
-        <br></br>
-        <a href={this.state.charity.url}>{this.state.charity.url}</a>
-        <p>{this.state.charity.deductibility}</p>
-        <p>Accountability: {this.state.charity.accountability_rating}</p>
-        <p>Financial Security: {this.state.charity.financial_rating}</p>
-        <Link to={ {pathname: "/donate/"} }><Button>donate</Button></Link>
-        </Card.Content>
-      </Card>
-    )
+    if (this.state.loading) {
+      return <Image className="loader" src="https://www.macupdate.com/images/icons256/54019.png"/>
+    } else {
+      return(
+        <Card>
+          <Card.Content class = "ui card">
+          <h2>{this.state.charity.name}</h2>
+          <Image src={this.state.charity.rating_image}/>
+          <br></br>
+          <a href={this.state.charity.url}>{this.state.charity.url}</a>
+          <p>{this.state.charity.deductibility}</p>
+          <p>Accountability: {this.state.charity.accountability_rating}</p>
+          <p>Financial Security: {this.state.charity.financial_rating}</p>
+          <Link to={ {pathname: "/donate/"} }><Button>donate</Button></Link>
+          </Card.Content>
+        </Card>
+      )
+    }
   }
 }
 

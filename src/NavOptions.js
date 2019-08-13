@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import ProfilePage from './ProfilePage'
 import {Button} from 'semantic-ui-react'
 
 const NavOptions = (props) => {

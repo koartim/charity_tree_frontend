@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import { fetchCurrentUser } from './actions'
 import { fetchCharity } from './actions'
 import { fetchDonation } from './actions'
-import { Route, Switch } from 'react-router-dom'
-import { Card, Icon, Image, Grid } from 'semantic-ui-react'
-import DonationForm from './DonationForm'
+import { Card, Image } from 'semantic-ui-react'
 
 class ProfilePage extends React.Component {
 
@@ -45,20 +43,20 @@ class ProfilePage extends React.Component {
   render() {
     if (this.state.loading) {
       return(
-        <img className="loader" src="https://www.macupdate.com/images/icons256/54019.png"/>
+        <Image className="loader" src="https://www.macupdate.com/images/icons256/54019.png"/>
       )
     } else {
       return(
       <Card>
         <Image align="center" src={this.props.selectedUser.user.avatar}/>
-          <Card.Header>{this.props.selectedUser.user.username}</Card.Header>
+          <h1>{this.props.selectedUser.user.username}</h1>
           <Card.Header>
             <Card.Description>{this.props.selectedUser.user.bio}</Card.Description>
           </Card.Header>
-          <Card.Header> Total Donated:{this.getTotalAmount()} </Card.Header>
-          <Card.Description>Estimated Deduction: ${(this.getTotalAmount() * 0.2).toFixed()}</Card.Description>
+          <h3> Total Donated:${this.getTotalAmount()} </h3>
+          <h3>Estimated Deduction: ${(this.getTotalAmount() * 0.2).toFixed()}</h3>
           <Card.Meta></Card.Meta>
-            <Card.Header>Donations:</Card.Header>
+            <h3>Donations:</h3>
           <Card.Description>
           {this.state.donations.map(donation => {
             if (donation.user_id === this.props.selectedUser.user.id) {

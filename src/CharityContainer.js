@@ -1,7 +1,5 @@
 import React from 'react';
 import CharityCard from './CharityCard'
-import CharityPage from './CharityPage'
-import { connect } from 'react-redux'
 
 class CharityContainer extends React.Component {
 
@@ -14,20 +12,6 @@ class CharityContainer extends React.Component {
         })}
       </div>
     )
-  }
-}
-
-function mapStateToProps(state){
-  return {
-    charities: state.charities
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchCharities: (charities) => {
-      dispatch({type: "FETCH_ALL_CHARITIES", payload: charities})
-    }
   }
 }
 

@@ -1,8 +1,6 @@
 import React from 'react'
-import {Button, Checkbox, Form} from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import {Button, Form} from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { Route } from 'react-router-dom'
 import { fetchCharity } from './actions'
 
 class DonationForm extends React.Component{

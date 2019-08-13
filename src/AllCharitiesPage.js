@@ -3,7 +3,8 @@ import {connect} from 'react-redux'
 import CharityPage from './CharityPage'
 import CharityContainer from './CharityContainer'
 import { Route, Switch } from 'react-router-dom'
-import queryString from 'query-string'
+import { Image } from 'semantic-ui-react'
+
 
 class AllCharitiesPage extends React.Component {
 
@@ -35,7 +36,7 @@ class AllCharitiesPage extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-        <img className="loader" src="https://www.macupdate.com/images/icons256/54019.png"/>
+        <Image className="loader" src="https://www.macupdate.com/images/icons256/54019.png"/>
       )
     } else {
       return (

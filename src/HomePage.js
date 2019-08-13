@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar'
 import { connect } from 'react-redux'
-import {Header} from 'semantic-ui-react'
 
 class HomePage extends React.Component{
 

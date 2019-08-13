@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
 import { login } from './actions'
 import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'

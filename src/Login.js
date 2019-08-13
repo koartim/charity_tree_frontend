@@ -2,8 +2,6 @@ import React from 'react'
 import { login, fetchCurrentUser } from './actions'
 import { connect } from 'react-redux'
 import { Form, Button } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
-import { Route, Switch } from 'react-router-dom'
 
 class Login extends React.Component {
 

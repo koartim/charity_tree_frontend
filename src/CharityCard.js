@@ -1,5 +1,5 @@
 import React from 'react';
-import  { Card, Image, Icon, Button } from 'semantic-ui-react'
+import  { Card, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 class CharityCard extends React.Component{
@@ -24,22 +24,7 @@ class CharityCard extends React.Component{
           </Card.Content>
       </Card.Content>
     </Card>
-
     )
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    selectedCharity: state.selectedCharity
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchCharity: (charity) => {
-      dispatch({type: "FETCH_CHARITY", payload: charity})
-    }
   }
 }
 
