@@ -6,17 +6,17 @@ class CharityCard extends React.Component{
 
   render() {
     return(
-      <Card class="ui cards">
-        <Card.Content class="ui card">
+      <Card className="ui cards">
+        <Card.Content className="ui card">
         <a href={this.props.charity.url}>Visit The {this.props.charity.name} website!</a>
-          <Card.Content class="content">
-            <div class="header">Cause Name: {this.props.charity.name} </div>
-            <div class="meta">Category:{this.props.charity.category}</div>
-            <div class="meta">Overall Rating: {this.props.charity.rating}</div>
-            <div class="meta">Financial Rating: {this.props.charity.financial_rating}</div>
-            <div class="meta">Accountability Rating: {this.props.charity.accountability_rating}</div>
-            <div class="meta">Deductibility {this.props.charity.deductibility}</div>
-            <div class="meta">State: {this.props.charity.state}</div>
+          <Card.Content className="content">
+            <div className="header">Cause Name: {this.props.charity.name} </div>
+            <div className="meta">Category:{this.props.charity.category}</div>
+            <div className="meta">Overall Rating: {this.props.charity.rating}</div>
+            <div className="meta">Financial Rating: {this.props.charity.financial_rating}</div>
+            <div className="meta">Accountability Rating: {this.props.charity.accountability_rating}</div>
+            <div className="meta">Deductibility {this.props.charity.deductibility}</div>
+            <div className="meta">State: {this.props.charity.state}</div>
             <Link to={
               {pathname: "/charities/" + this.props.charity.id}
             }>

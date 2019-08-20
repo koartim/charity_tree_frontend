@@ -17,7 +17,6 @@ function reducer(prevState = defaultState, action) {
     case "SET_FILTER_VALUE":
       return {...prevState, filterValue: action.payload}
     case "FETCH_DONATION":
-    console.log("here")
       return {...prevState, selectedDonation: action.payload}
     default:
       return prevState

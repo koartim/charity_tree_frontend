@@ -12,10 +12,8 @@ class DonationForm extends React.Component{
   }
 
     getSelectedCharity = (charityName) => {
-      console.log('get selected charity', charityName)
       this.props.charities.map(charity => {
         if (charity.name === charityName) {
-          console.log(charity)
           this.props.fetchCharity(charity)
         }
       })
@@ -29,7 +27,6 @@ class DonationForm extends React.Component{
 
     handleSubmit = (event) => {
       event.preventDefault()
-      console.log("here")
         fetch('http://localhost:3000/api/v1/donations', {
           method: "POST",
           headers: {
@@ -49,8 +46,6 @@ class DonationForm extends React.Component{
     }
 
   render() {
-    console.log(this.props)
-    console.log(this.state.selectedCharity, this.props.selectedCharity)
     return(
       <Form onSubmit={this.handleSubmit} class="ui form">
     <div class="field">
@@ -66,12 +61,6 @@ class DonationForm extends React.Component{
         return <option>{charity.name}</option>
       })}
       </select>
-    <div class="field">
-      <div class="ui checkbox">
-        <input type="checkbox" class="hidden" readonly="" tabindex="0" />
-        <label>I agree to the Terms and Conditions</label>
-      </div>
-    </div>
     <Button type="Submit" value="Submit" class="button">Submit</Button>
   </Form>
     )

@@ -15,7 +15,6 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return(
       <div align="left">
       <div className="search-container">

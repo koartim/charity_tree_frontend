@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Charity Tree! The goal of this app is to allow you to easily search
+and donate to the foundation of your choice. To use the app, simply enter your
+information into the signup form and submit! You can search for a charity by name, or you can enter a keyword to display a list of charities that match it.
+
+You can also bring up a list of all charities but clicking the "charities" button located on the leftmost side of the navigation bar.
 
 ## Available Scripts
 

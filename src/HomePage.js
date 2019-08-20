@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 class HomePage extends React.Component{
 
   render(){
-    console.log(this.props)
     return(
       <div align="left" className="home-page">
       <h2>Search</h2>

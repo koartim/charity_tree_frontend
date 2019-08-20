@@ -3,6 +3,7 @@ import "./App.css";
 import AllCharitiesPage from "./AllCharitiesPage";
 import NavBar from "./NavBar"
 import HomePage from './HomePage'
+import DonationPage from './DonationPage'
 import ProfilePage from './ProfilePage'
 import CharityPage from './CharityPage'
 import DonationForm from './DonationForm'
@@ -16,10 +17,9 @@ import { Grid } from 'semantic-ui-react'
  class App extends React.Component {
 
    render() {
-
      return(
        <Grid>
-        <NavBar align="center"/>
+        <NavBar />
             <Grid.Row centered>
             <Switch>
               <Route path="/home" render={() => <HomePage /> }/>
@@ -29,6 +29,7 @@ import { Grid } from 'semantic-ui-react'
               <Route path="/login" render={routeProps => <Login{...routeProps}/>}/>
               <Route path="/profilepage" render={() => <ProfilePage />}/>
               <Route path="/donate" render={routeProps => <DonationForm {...routeProps} />}/>
+              <Route path="/donations/:id" render={routeProps => <DonationPage {...routeProps}/>}/>
             </Switch>
        </Grid.Row>
       </Grid>

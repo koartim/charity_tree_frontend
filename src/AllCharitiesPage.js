@@ -43,7 +43,6 @@ class AllCharitiesPage extends React.Component {
         <Switch>
           <Route path="/charities/:id" render={routeProps => {
             const charityId = routeProps.match.params.id
-            console.log(charityId)
               return (
                 <CharityPage charityId={charityId} />
               )

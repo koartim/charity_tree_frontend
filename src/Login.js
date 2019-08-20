@@ -36,9 +36,9 @@ class Login extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log("first", this.props)
     return(
-      <Form slign="left" onSubmit={this.handleSubmit}>
+      <Form align="left" onSubmit={this.handleSubmit}>
 		    <Form.Field>
 		      <label>Username</label>
 		      <input onChange={this.handleChange} name="username" value={this.state.username} placeholder='Username' />

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchCurrentUser } from './actions'
 import { fetchCharity } from './actions'
 import { fetchDonation } from './actions'
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Button } from 'semantic-ui-react'
 
 class ProfilePage extends React.Component {
 
@@ -23,12 +23,6 @@ class ProfilePage extends React.Component {
     })
   }
 
-  getNumberOfDonations = () => {
-    return this.state.donations.reduce((acc, donation) => {
-      if (donation.user_id === this.props.selectedUser.user.id) {}
-    })
-  }
-
   getTotalAmount = () => {
     return this.state.donations.reduce((acc, donation) => {
       if (donation.user_id === this.props.selectedUser.user.id) {
@@ -41,6 +35,7 @@ class ProfilePage extends React.Component {
   // if (this.state.donations.length > 0) {
   //   console.log(this.state.donations)
   render() {
+    console.log(this.props.selectedUser.user)
     if (this.state.loading) {
       return(
         <Image className="loader" src="https://www.macupdate.com/images/icons256/54019.png"/>
@@ -53,10 +48,10 @@ class ProfilePage extends React.Component {
           <Card.Header>
             <Card.Description>{this.props.selectedUser.user.bio}</Card.Description>
           </Card.Header>
-          <h3> Total Donated:${this.getTotalAmount()} </h3>
+          <h3> Total Donated:${this.getTotalAmount().toFixed()} </h3>
           <h3>Estimated Deduction: ${(this.getTotalAmount() * 0.2).toFixed()}</h3>
           <Card.Meta></Card.Meta>
-            <h3>Donations:</h3>
+            <Button>Donations:</Button>
           <Card.Description>
           {this.state.donations.map(donation => {
             if (donation.user_id === this.props.selectedUser.user.id) {
